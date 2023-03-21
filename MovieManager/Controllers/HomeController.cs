@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MovieManager_MVC.Models;
+using MovieManager.Models;
 using System.Diagnostics;
 
-namespace MovieManager_MVC.Controllers
+namespace MovieManager.Controllers
 {
     public class HomeController : Controller
     {
@@ -15,13 +15,10 @@ namespace MovieManager_MVC.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

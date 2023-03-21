@@ -1,0 +1,52 @@
+﻿@model MovieManager.Models.Movie
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Movie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Desc" class="control-label">Description</label>
+                <input asp-for="Desc" class="form-control" />
+                <span asp-validation-for="Desc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DirectorId" class="control-label">Director</label>
+                <select asp-for="DirectorId" class="form-control" asp-items="ViewBag.DirectorId"></select>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="ActorMovies" class="control-label">Actors</label>
+                <select asp-for="ActorMovies" class="form-control" asp-items="ViewBag.ActorId" multiple></select>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Files" class="control-label">Select Files</label>
+                <input asp-for="Files" class="form-control" multiple/>
+                <span asp-validation-for="Files" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
